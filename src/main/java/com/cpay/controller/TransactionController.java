@@ -21,16 +21,16 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-    @PostMapping("/record")
-    public ResponseEntity<Transaction> recordTransaction(@RequestBody Transaction transaction) {
-        Transaction savedTransaction = transactionService.recordTransaction(transaction);
-        return ResponseEntity.ok(savedTransaction);
-    }
+	/*
+	 * @PostMapping("/record") public ResponseEntity<Transaction>
+	 * recordTransaction(@RequestBody Transaction transaction) { Transaction
+	 * savedTransaction = transactionService.recordTransaction(transaction); return
+	 * ResponseEntity.ok(savedTransaction); }
+	 */
 
-    @GetMapping("/{cardId}")
-    public ResponseEntity<Iterable<Transaction>> getTransactionsByCardId(@PathVariable Long cardId) {
-        Iterable<Transaction> transactions = transactionService.getTransactionsByCreditCardId(cardId);
+    @GetMapping("/card/{cardNumber}")
+    public ResponseEntity<Iterable<Transaction>> getTransactionsByCardNumber(@PathVariable String cardNumber) {
+        Iterable<Transaction> transactions = transactionService.getTransactionsByCardNumber(cardNumber);
         return ResponseEntity.ok(transactions);
     }
 }
-

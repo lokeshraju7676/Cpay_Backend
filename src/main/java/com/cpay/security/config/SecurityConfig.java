@@ -52,21 +52,32 @@ public class SecurityConfig {
         http
             // Authorize requests
             .authorizeHttpRequests(authorize -> authorize
-            		 .requestMatchers("/api/applications/**").hasRole("Customer") // Secure all application-related endpoints
-                     .requestMatchers("/api/orders/track/**").hasRole("Customer") // Secure order tracking
-                     .requestMatchers("/api/payments/**").hasRole("Customer") // Secure payment endpoints
-                     .requestMatchers("/api/transactions/**").hasRole("Customer") // Secure transaction endpoints
-                     .requestMatchers("/api/applications/apply").hasRole("Customer") // Apply for credit card
-                     
-                  // Admin only endpoints
-                     .requestMatchers("/api/customer/**").hasRole("ADMIN") // Admin can manage customers
-                     .requestMatchers("/api/applications/approve/**").hasRole("ADMIN") // Admin can approve applications
-
-                     // Customer and Admin shared access
-                     .requestMatchers("/api/payments/process").hasAnyRole("CUSTOMER", "ADMIN") // Both can process payments
-                     
-                     .requestMatchers(PUBLIC_REQUEST_MATCHERS).permitAll() // Allow public access to auth, swagger, etc.
-                     .anyRequest().authenticated() // All other requests must be authenticated
+            	.requestMatchers("/api/applications/apply").authenticated()
+            	.requestMatchers("/api/orders/track/{applicationId}").hasRole("CUSTOMER")
+            	.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
+            	//.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
+            	.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
+            	.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("ADMIN","CUSTOMER")
+            	
+            	.requestMatchers("/api/payments/process").hasRole("CUSTOMER")
+            	
+            	
+            	
+            	.requestMatchers("/greet").hasRole("USER")
+            	.requestMatchers("/admingreet").hasRole("ADMIN")
+            	.requestMatchers("/helloworld/hello").authenticated()
+            	.requestMatchers("/bookrestapi/bookapi/book/new").hasRole("ADMIN")
+            	.requestMatchers("/bookrestapi/bookapi/book/delete/**").hasRole("ADMIN")
+            	.requestMatchers("/bookrestapi/bookapi/book/name/**").permitAll()
+            	.requestMatchers("/bookrestapi/bookapi/book/books").permitAll()
+            	.requestMatchers("/bookrestapi/bookapi/test").authenticated()
+            	.requestMatchers("/api/customer/delete/**").hasRole("ADMIN")
+            	.requestMatchers("/api/customer/update").hasRole("ADMIN")
+            	.requestMatchers("/api/customer/new").hasRole("ADMIN")
+            	.requestMatchers("/api/customer/get/**").permitAll()
+            	.requestMatchers("/api/customer/customers").hasAnyRole("USER","ADMIN")
+            	.requestMatchers(PUBLIC_REQUEST_MATCHERS).permitAll()
+               // .anyRequest().authenticated()
             )
             // Enable HTTP Basic Authentication
             //.httpBasic(Customizer.withDefaults())

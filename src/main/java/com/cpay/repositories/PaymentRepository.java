@@ -8,6 +8,6 @@ import com.cpay.entities.Payment;
 
 public interface PaymentRepository extends CrudRepository<Payment, Long> {
 
-    // Modify to return Optional<Payment>
-    Optional<Payment> findByCreditCardApplicationId(Long applicationId);
+    // Find payment by card number
+    Optional<Payment> findByCreditCardCardNumber(String cardNumber);
 }

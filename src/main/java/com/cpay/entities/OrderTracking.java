@@ -1,18 +1,20 @@
 package com.cpay.entities;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
-
 import com.cpay.entities.ERole.EOrderStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 @Entity
 public class OrderTracking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING) // Use enum for orderStatus
+    @Enumerated(EnumType.STRING) // Enum for order status
     @Column(nullable = false)
+    @JsonIgnore
     private ERole.EOrderStatus orderStatus;
 
     @Column(nullable = false)
@@ -21,9 +23,24 @@ public class OrderTracking {
     @Column(nullable = true)
     private LocalDate deliveryDate;
 
-    @OneToOne
-    @JoinColumn(name = "application_id", nullable = false)
+    // One-to-One relationship with CreditCardApplication (Foreign Key)
+    @OneToOne(cascade = CascadeType.ALL)  // Propagate operations to associated CreditCardApplication
+    @JoinColumn(name = "application_id", referencedColumnName = "id", nullable = false) // Foreign key column
     private CreditCardApplication creditCardApplication;
+
+    // Default constructor
+    public OrderTracking() {
+    }
+
+    // Parameterized constructor
+    public OrderTracking(Long id, EOrderStatus orderStatus, LocalDate orderDate, LocalDate deliveryDate,
+                         CreditCardApplication creditCardApplication) {
+        this.id = id;
+        this.orderStatus = orderStatus;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.creditCardApplication = creditCardApplication;
+    }
 
     // Getters and Setters
     public Long getId() {
@@ -65,15 +82,4 @@ public class OrderTracking {
     public void setCreditCardApplication(CreditCardApplication creditCardApplication) {
         this.creditCardApplication = creditCardApplication;
     }
-
-	public OrderTracking(Long id, EOrderStatus orderStatus, LocalDate orderDate, LocalDate deliveryDate,
-			CreditCardApplication creditCardApplication) {
-		this.id = id;
-		this.orderStatus = orderStatus;
-		this.orderDate = orderDate;
-		this.deliveryDate = deliveryDate;
-		this.creditCardApplication = creditCardApplication;
-	}
-    
-    
 }

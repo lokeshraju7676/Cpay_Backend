@@ -2,6 +2,7 @@ package com.cpay.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,15 +22,16 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping("/process")
     public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
         Payment processedPayment = paymentService.processPayment(payment);
         return ResponseEntity.ok(processedPayment);
     }
 
-    @GetMapping("/{applicationId}")
-    public ResponseEntity<Payment> getPaymentByApplicationId(@PathVariable Long applicationId) {
-        Payment payment = paymentService.getPaymentByApplicationId(applicationId);
+    @GetMapping("/card/{cardNumber}")
+    public ResponseEntity<Payment> getPaymentByCardNumber(@PathVariable String cardNumber) {
+        Payment payment = paymentService.getPaymentByCardNumber(cardNumber);
         return ResponseEntity.ok(payment);
     }
 }

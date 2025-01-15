@@ -1,46 +1,61 @@
 package com.cpay.entities;
 
 import java.time.LocalDate;
-import com.cpay.entities.ERole.EApplicationStatus;
 
-import jakarta.persistence.*;
+import com.cpay.entities.ERole.EApplicationStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class CreditCardApplication {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String applicantName;
+    private String applicantName;  // The name of the applicant/cardholder
 
     @Column(nullable = false)
-    private String applicantEmail;
+    private String applicantEmail;  // The email of the applicant
 
     @Column(nullable = false)
-    private String mobileNumber;
+    private String mobileNumber;  // Applicant's mobile number
 
     @Column(nullable = false)
-    private String employmentStatus;
+    private String employmentStatus;  // Applicant's employment status
 
     @Column(nullable = false)
-    private Double annualIncome;
+    private Double annualIncome;  // Applicant's annual income
 
     @Column(nullable = false)
-    private String address;
+    private String address;  // Applicant's residential address
 
     @Column(nullable = false)
-    private LocalDate applicationDate;
+    private LocalDate applicationDate;  // Date the application was made
 
-    @Enumerated(EnumType.STRING) // Use enum for applicationStatus
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ERole.EApplicationStatus applicationStatus;
+    private ERole.EApplicationStatus applicationStatus;  // Application status (e.g., approved, pending)
 
-    // Changed from @ManyToOne to @Column to store the username as a simple string
+    // One-to-One relationship with OrderTracking
+    @OneToOne(mappedBy = "creditCardApplication", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private OrderTracking orderTracking;  // Link to the order tracking
+
     @Column(nullable = false)
-    private String username;  // Just store the username, not as an entity relationship
+    private String username;  // Username of the applicant (can be used for linking with the User table)
 
-    // Getters and Setters
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -113,6 +128,14 @@ public class CreditCardApplication {
         this.applicationStatus = applicationStatus;
     }
 
+    public OrderTracking getOrderTracking() {
+        return orderTracking;
+    }
+
+    public void setOrderTracking(OrderTracking orderTracking) {
+        this.orderTracking = orderTracking;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -121,9 +144,10 @@ public class CreditCardApplication {
         this.username = username;
     }
 
+    // Constructor for initialization
     public CreditCardApplication(Long id, String applicantName, String applicantEmail, String mobileNumber,
                                   String employmentStatus, Double annualIncome, String address, LocalDate applicationDate,
-                                  EApplicationStatus applicationStatus, String username) {
+                                  EApplicationStatus applicationStatus, OrderTracking orderTracking, String username) {
         this.id = id;
         this.applicantName = applicantName;
         this.applicantEmail = applicantEmail;
@@ -133,6 +157,7 @@ public class CreditCardApplication {
         this.address = address;
         this.applicationDate = applicationDate;
         this.applicationStatus = applicationStatus;
+        this.orderTracking = orderTracking;
         this.username = username;
     }
 }

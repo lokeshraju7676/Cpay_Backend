@@ -1,12 +1,22 @@
 package com.cpay.entities;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
 import com.cpay.entities.ERole.EPaymentStatus;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 @Entity
 public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,15 +27,16 @@ public class Payment {
     @Column(nullable = false)
     private LocalDate paymentDate;
 
-    @Enumerated(EnumType.STRING) // Use enum for paymentStatus
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ERole.EPaymentStatus paymentStatus;
+    private EPaymentStatus paymentStatus;
 
-    @OneToOne
-    @JoinColumn(name = "application_id", nullable = false)
-    private CreditCardApplication creditCardApplication;
+    @ManyToOne
+    @JoinColumn(name = "card_number", referencedColumnName = "cardNumber", nullable = false)
+    private CreditCardDetails creditCard;  // Linking to CreditCardDetails by cardNumber
 
-    // Getters and Setters
+    public Payment() {}
+
     public Long getId() {
         return id;
     }
@@ -50,30 +61,27 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public ERole.EPaymentStatus getPaymentStatus() {
+    public EPaymentStatus getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(ERole.EPaymentStatus paymentStatus) {
+    public void setPaymentStatus(EPaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
-    public CreditCardApplication getCreditCardApplication() {
-        return creditCardApplication;
+    public CreditCardDetails getCreditCard() {
+        return creditCard;
     }
 
-    public void setCreditCardApplication(CreditCardApplication creditCardApplication) {
-        this.creditCardApplication = creditCardApplication;
+    public void setCreditCard(CreditCardDetails creditCard) {
+        this.creditCard = creditCard;
     }
 
-	public Payment(Long id, Double amount, LocalDate paymentDate, EPaymentStatus paymentStatus,
-			CreditCardApplication creditCardApplication) {
-		this.id = id;
-		this.amount = amount;
-		this.paymentDate = paymentDate;
-		this.paymentStatus = paymentStatus;
-		this.creditCardApplication = creditCardApplication;
-	}
-    
-    
+    public Payment(Long id, Double amount, LocalDate paymentDate, EPaymentStatus paymentStatus, CreditCardDetails creditCard) {
+        this.id = id;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+        this.paymentStatus = paymentStatus;
+        this.creditCard = creditCard;
+    }
 }

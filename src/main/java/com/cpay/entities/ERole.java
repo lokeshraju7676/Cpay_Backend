@@ -39,7 +39,8 @@ public enum ERole {
         DISPATCHED("Dispatched"),
         IN_TRANSIT("In Transit"),
         DELIVERED("Delivered"),
-        CANCELLED("Cancelled");
+        CANCELLED("Cancelled"),
+        PENDING("Pending");
 
         private String displayName;
 
