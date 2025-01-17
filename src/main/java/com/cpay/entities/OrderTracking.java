@@ -1,8 +1,10 @@
 package com.cpay.entities;
 
 import java.time.LocalDate;
+
 import com.cpay.entities.ERole.EOrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,9 +14,8 @@ public class OrderTracking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING) // Enum for order status
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    @JsonIgnore
     private ERole.EOrderStatus orderStatus;
 
     @Column(nullable = false)
@@ -24,62 +25,74 @@ public class OrderTracking {
     private LocalDate deliveryDate;
 
     // One-to-One relationship with CreditCardApplication (Foreign Key)
-    @OneToOne(cascade = CascadeType.ALL)  // Propagate operations to associated CreditCardApplication
-    @JoinColumn(name = "application_id", referencedColumnName = "id", nullable = false) // Foreign key column
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "application_id", referencedColumnName = "id", nullable = false)
     private CreditCardApplication creditCardApplication;
 
-    // Default constructor
-    public OrderTracking() {
-    }
-
-    // Parameterized constructor
-    public OrderTracking(Long id, EOrderStatus orderStatus, LocalDate orderDate, LocalDate deliveryDate,
-                         CreditCardApplication creditCardApplication) {
-        this.id = id;
-        this.orderStatus = orderStatus;
-        this.orderDate = orderDate;
-        this.deliveryDate = deliveryDate;
-        this.creditCardApplication = creditCardApplication;
-    }
+    @Column(nullable = false)
+    private Long orderId;  // Randomly generated Order ID
 
     // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    
+    // ... (Getters and Setters for each field)
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public OrderTracking() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public ERole.EOrderStatus getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(ERole.EOrderStatus orderStatus) {
+	// Constructor for initialization
+    public OrderTracking(EOrderStatus orderStatus, LocalDate orderDate, Long orderId, CreditCardApplication creditCardApplication) {
         this.orderStatus = orderStatus;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public LocalDate getDeliveryDate() {
-        return deliveryDate;
-    }
-
-    public void setDeliveryDate(LocalDate deliveryDate) {
-        this.deliveryDate = deliveryDate;
-    }
-
-    public CreditCardApplication getCreditCardApplication() {
-        return creditCardApplication;
-    }
-
-    public void setCreditCardApplication(CreditCardApplication creditCardApplication) {
+        this.orderId = orderId;
         this.creditCardApplication = creditCardApplication;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ERole.EOrderStatus getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(ERole.EOrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public LocalDate getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(LocalDate deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+
+	public CreditCardApplication getCreditCardApplication() {
+		return creditCardApplication;
+	}
+
+	public void setCreditCardApplication(CreditCardApplication creditCardApplication) {
+		this.creditCardApplication = creditCardApplication;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
 }

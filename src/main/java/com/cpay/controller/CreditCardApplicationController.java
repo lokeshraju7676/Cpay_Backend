@@ -29,7 +29,7 @@ public class CreditCardApplicationController {
         return ResponseEntity.ok(savedApplication);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{username}")
     public ResponseEntity<Iterable<CreditCardApplication>> getApplicationsByUserId(@PathVariable String username) {
         Iterable<CreditCardApplication> applications = applicationService.getApplicationsByUserId(username);
         return ResponseEntity.ok(applications);

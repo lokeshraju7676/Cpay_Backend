@@ -5,15 +5,7 @@ import java.time.LocalDate;
 import com.cpay.entities.ERole.EApplicationStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class CreditCardApplication {
@@ -55,114 +47,114 @@ public class CreditCardApplication {
     @Column(nullable = false)
     private String username;  // Username of the applicant (can be used for linking with the User table)
 
+    // Getters and Setters
     
-    public CreditCardApplication() {
+    // ... (Getters and Setters for each field)
+
+    // Constructor for initialization
+    public CreditCardApplication(String applicantName, String applicantEmail, String mobileNumber,
+                                  String employmentStatus, Double annualIncome, String address, LocalDate applicationDate,
+                                  EApplicationStatus applicationStatus, String username) {
+        this.applicantName = applicantName;
+        this.applicantEmail = applicantEmail;
+        this.mobileNumber = mobileNumber;
+        this.employmentStatus = employmentStatus;
+        this.annualIncome = annualIncome;
+        this.address = address;
+        this.applicationDate = applicationDate;
+        this.applicationStatus = applicationStatus;
+        this.username = username;
+    }
+
+	public CreditCardApplication() {
 		// TODO Auto-generated constructor stub
 	}
 
-	// Getters and setters
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getApplicantName() {
-        return applicantName;
-    }
+	public String getApplicantName() {
+		return applicantName;
+	}
 
-    public void setApplicantName(String applicantName) {
-        this.applicantName = applicantName;
-    }
+	public void setApplicantName(String applicantName) {
+		this.applicantName = applicantName;
+	}
 
-    public String getApplicantEmail() {
-        return applicantEmail;
-    }
+	public String getApplicantEmail() {
+		return applicantEmail;
+	}
 
-    public void setApplicantEmail(String applicantEmail) {
-        this.applicantEmail = applicantEmail;
-    }
+	public void setApplicantEmail(String applicantEmail) {
+		this.applicantEmail = applicantEmail;
+	}
 
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
 
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
 
-    public String getEmploymentStatus() {
-        return employmentStatus;
-    }
+	public String getEmploymentStatus() {
+		return employmentStatus;
+	}
 
-    public void setEmploymentStatus(String employmentStatus) {
-        this.employmentStatus = employmentStatus;
-    }
+	public void setEmploymentStatus(String employmentStatus) {
+		this.employmentStatus = employmentStatus;
+	}
 
-    public Double getAnnualIncome() {
-        return annualIncome;
-    }
+	public Double getAnnualIncome() {
+		return annualIncome;
+	}
 
-    public void setAnnualIncome(Double annualIncome) {
-        this.annualIncome = annualIncome;
-    }
+	public void setAnnualIncome(Double annualIncome) {
+		this.annualIncome = annualIncome;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public LocalDate getApplicationDate() {
-        return applicationDate;
-    }
+	public LocalDate getApplicationDate() {
+		return applicationDate;
+	}
 
-    public void setApplicationDate(LocalDate applicationDate) {
-        this.applicationDate = applicationDate;
-    }
+	public void setApplicationDate(LocalDate applicationDate) {
+		this.applicationDate = applicationDate;
+	}
 
-    public ERole.EApplicationStatus getApplicationStatus() {
-        return applicationStatus;
-    }
+	public ERole.EApplicationStatus getApplicationStatus() {
+		return applicationStatus;
+	}
 
-    public void setApplicationStatus(ERole.EApplicationStatus applicationStatus) {
-        this.applicationStatus = applicationStatus;
-    }
+	public void setApplicationStatus(ERole.EApplicationStatus applicationStatus) {
+		this.applicationStatus = applicationStatus;
+	}
 
-    public OrderTracking getOrderTracking() {
-        return orderTracking;
-    }
+	public OrderTracking getOrderTracking() {
+		return orderTracking;
+	}
 
-    public void setOrderTracking(OrderTracking orderTracking) {
-        this.orderTracking = orderTracking;
-    }
+	public void setOrderTracking(OrderTracking orderTracking) {
+		this.orderTracking = orderTracking;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    // Constructor for initialization
-    public CreditCardApplication(Long id, String applicantName, String applicantEmail, String mobileNumber,
-                                  String employmentStatus, Double annualIncome, String address, LocalDate applicationDate,
-                                  EApplicationStatus applicationStatus, OrderTracking orderTracking, String username) {
-        this.id = id;
-        this.applicantName = applicantName;
-        this.applicantEmail = applicantEmail;
-        this.mobileNumber = mobileNumber;
-        this.employmentStatus = employmentStatus;
-        this.annualIncome = annualIncome;
-        this.address = address;
-        this.applicationDate = applicationDate;
-        this.applicationStatus = applicationStatus;
-        this.orderTracking = orderTracking;
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 }
