@@ -53,11 +53,12 @@ public class SecurityConfig {
             // Authorize requests
             .authorizeHttpRequests(authorize -> authorize
             	.requestMatchers("/api/applications/apply").authenticated()
+            	.requestMatchers("/api/applications/{userId}").authenticated()
             	.requestMatchers("/api/orders/track/{applicationId}").hasRole("CUSTOMER")
             	.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
             	//.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
             	.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
-            	.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("ADMIN","CUSTOMER")
+            	.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("CUSTOMER","ADMIN")
             	
             	.requestMatchers("/api/payments/process").hasRole("CUSTOMER")
             	

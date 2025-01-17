@@ -30,11 +30,15 @@ public class CreditCardDetailsController {
         return ResponseEntity.ok(savedCardDetails);
     }
 
-    // Endpoint to get card details by card number
+ // Endpoint to get card details by card number
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
     @GetMapping("/{cardNumber}")
     public ResponseEntity<CreditCardDetails> getCardDetailsByCardNumber(@PathVariable String cardNumber) {
         CreditCardDetails cardDetails = creditCardDetailsService.getCardDetailsByCardNumber(cardNumber);
-        return ResponseEntity.ok(cardDetails);
+        if (cardDetails != null) {
+            return ResponseEntity.ok(cardDetails);
+        } else {
+            return ResponseEntity.status(404).body(null);
+        }
     }
 }
