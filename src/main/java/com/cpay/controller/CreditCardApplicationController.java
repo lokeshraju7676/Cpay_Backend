@@ -36,21 +36,22 @@ public class CreditCardApplicationController {
     }
     
     
-    //Admin related Methods
-    
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/approve/{id}")
-    public ResponseEntity<CreditCardApplication> approveApplication(@PathVariable Long id) {
-        CreditCardApplication approvedApplication = applicationService.approveApplication(id);
-        return ResponseEntity.ok(approvedApplication);
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/reject/{id}")
-    public ResponseEntity<CreditCardApplication> rejectApplication(@PathVariable Long id) {
-        CreditCardApplication rejectedApplication = applicationService.rejectApplication(id);
-        return ResponseEntity.ok(rejectedApplication);
-    }
-    
+	/*
+	 * //Admin related Methods
+	 * 
+	 * @PreAuthorize("hasRole('ADMIN')")
+	 * 
+	 * @PostMapping("/approve/{id}") public ResponseEntity<CreditCardApplication>
+	 * approveApplication(@PathVariable Long id) { CreditCardApplication
+	 * approvedApplication = applicationService.approveApplication(id); return
+	 * ResponseEntity.ok(approvedApplication); }
+	 * 
+	 * @PreAuthorize("hasRole('ADMIN')")
+	 * 
+	 * @PostMapping("/reject/{id}") public ResponseEntity<CreditCardApplication>
+	 * rejectApplication(@PathVariable Long id) { CreditCardApplication
+	 * rejectedApplication = applicationService.rejectApplication(id); return
+	 * ResponseEntity.ok(rejectedApplication); }
+	 */    
     
 }

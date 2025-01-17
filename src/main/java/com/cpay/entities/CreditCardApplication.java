@@ -55,7 +55,12 @@ public class CreditCardApplication {
     @Column(nullable = false)
     private String username;  // Username of the applicant (can be used for linking with the User table)
 
-    // Getters and setters
+    
+    public CreditCardApplication() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// Getters and setters
     public Long getId() {
         return id;
     }
