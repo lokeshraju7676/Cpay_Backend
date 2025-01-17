@@ -1,17 +1,18 @@
 package com.cpay.service;
 
+import java.time.LocalDate;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cpay.entities.CreditCardApplication;
-import com.cpay.entities.OrderTracking;
 import com.cpay.entities.ERole.EApplicationStatus;
 import com.cpay.entities.ERole.EOrderStatus;
+import com.cpay.entities.OrderTracking;
 import com.cpay.exceptions.ResourceNotFoundException;
 import com.cpay.repositories.CreditCardApplicationRepository;
 import com.cpay.repositories.OrderTrackingRepository;
-
-import java.time.LocalDate;
 
 @Service
 public class CreditCardApplicationServiceImpl implements CreditCardApplicationService {
@@ -24,16 +25,21 @@ public class CreditCardApplicationServiceImpl implements CreditCardApplicationSe
 
     @Override
     public CreditCardApplication applyForCreditCard(CreditCardApplication application) {
-        // Step 1: Save the CreditCardApplication first
+        // Step 1: Save the CreditCardApplication
         CreditCardApplication savedApplication = applicationRepository.save(application);
 
-        // Step 2: Create the associated OrderTracking
-        OrderTracking orderTracking = new OrderTracking();
-        orderTracking.setOrderStatus(EOrderStatus.PENDING);  // Set initial status to 'Pending'
-        orderTracking.setOrderDate(LocalDate.now());  // Set order date to the current date
-        orderTracking.setCreditCardApplication(savedApplication);  // Link this OrderTracking with the saved application
+        // Step 2: Generate a Random Order ID (e.g., between 100000 and 999999)
+        Random random = new Random();
+        Long randomOrderId = 100000L + (long) (random.nextInt(900000));
 
-        // Step 3: Save the OrderTracking to associate it with the application_id in the database
+        // Step 3: Create the associated OrderTracking
+        OrderTracking orderTracking = new OrderTracking();
+        orderTracking.setOrderStatus(EOrderStatus.PENDING);  // Initial status 'PENDING'
+        orderTracking.setOrderDate(LocalDate.now());  // Set current date as order date
+        orderTracking.setOrderId(randomOrderId);  // Set the random order ID
+        orderTracking.setCreditCardApplication(savedApplication);  // Link order tracking to the application
+
+        // Step 4: Save the OrderTracking
         orderTrackingRepository.save(orderTracking);
 
         // Return the saved CreditCardApplication
@@ -48,21 +54,22 @@ public class CreditCardApplicationServiceImpl implements CreditCardApplicationSe
 
     @Override
     public CreditCardApplication approveApplication(Long applicationId) {
-        CreditCardApplication application = applicationRepository.findById(applicationId)
-                .orElseThrow(() -> new ResourceNotFoundException("Credit Card Application not found with ID: " + applicationId));
+        CreditCardApplication application = applicationRepository.findById(applicationId).orElseThrow(() -> 
+            new ResourceNotFoundException("Application not found with ID: " + applicationId));
         application.setApplicationStatus(EApplicationStatus.APPROVED);
         return applicationRepository.save(application);
     }
 
     @Override
     public CreditCardApplication rejectApplication(Long applicationId) {
-        CreditCardApplication application = applicationRepository.findById(applicationId)
-                .orElseThrow(() -> new ResourceNotFoundException("Credit Card Application not found with ID: " + applicationId));
+        CreditCardApplication application = applicationRepository.findById(applicationId).orElseThrow(() -> 
+            new ResourceNotFoundException("Application not found with ID: " + applicationId));
         application.setApplicationStatus(EApplicationStatus.REJECTED);
         return applicationRepository.save(application);
     }
 
     // Helper method to create an OrderTracking entity
+    @Override
     public OrderTracking createOrderTracking(CreditCardApplication application) {
         OrderTracking orderTracking = new OrderTracking();
         orderTracking.setOrderStatus(EOrderStatus.PENDING); // Default status as pending

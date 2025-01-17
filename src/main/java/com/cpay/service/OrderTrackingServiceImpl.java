@@ -1,5 +1,7 @@
 package com.cpay.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,14 @@ public class OrderTrackingServiceImpl implements OrderTrackingService {
     private OrderTrackingRepository orderTrackingRepository;
 
     @Override
-    public OrderTracking trackOrder(Long applicationId) {
-        return orderTrackingRepository.findByCreditCardApplicationId(applicationId)
-                .orElseThrow(() -> new ResourceNotFoundException("Order Tracking not found for Application ID: " + applicationId));
+    public OrderTracking trackOrder(Long orderId) {
+        Optional<OrderTracking> orderTracking = orderTrackingRepository.findByOrderId(orderId);
+
+        if (!orderTracking.isPresent()) {
+            throw new ResourceNotFoundException("Order not found with ID: " + orderId);
+        }
+
+        // Return the found order tracking
+        return orderTracking.get();
     }
 }

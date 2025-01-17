@@ -1,11 +1,14 @@
 package com.cpay.repositories;
 
-import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import com.cpay.entities.OrderTracking;
+import java.util.Optional;
 
+@Repository
 public interface OrderTrackingRepository extends CrudRepository<OrderTracking, Long> {
 
-    // Modify to return Optional<OrderTracking>
-    Optional<OrderTracking> findByCreditCardApplicationId(Long applicationId);
+    // Custom query to find an OrderTracking by orderId
+    Optional<OrderTracking> findByOrderId(Long orderId);
+
 }
