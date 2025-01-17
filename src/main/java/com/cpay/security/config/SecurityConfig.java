@@ -54,7 +54,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
             	.requestMatchers("/api/applications/apply").authenticated()
             	.requestMatchers("/api/applications/{userId}").authenticated()
-            	.requestMatchers("/api/orders/track/{applicationId}").hasRole("CUSTOMER")
+            	.requestMatchers("/api/orders/track/{orderId}").permitAll()
             	.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
             	//.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
             	.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
