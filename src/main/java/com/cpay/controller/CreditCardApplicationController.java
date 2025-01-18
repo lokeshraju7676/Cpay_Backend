@@ -35,7 +35,6 @@ public class CreditCardApplicationController {
 		return ResponseEntity.ok(applications);
 	}
 
-	// New endpoint to get application details by Order ID
 	@PreAuthorize("hasRole('Admin')")
 	@GetMapping("/details/{orderId}")
 	public ResponseEntity<CreditCardApplication> getApplicationByOrderId(@PathVariable String orderId) {

@@ -7,21 +7,15 @@ import com.cpay.entities.OrderTracking;
 
 public interface OrderTrackingService {
 
-    // Method to track an order based on its unique order ID
-    OrderTracking trackOrder(Long orderId);
+	OrderTracking trackOrder(Long orderId);
 
-    // Method to get all orders (for admin)
-    List<OrderTracking> getAllOrders();
+	List<OrderTracking> getAllOrders();
 
-    // Method to update the status of an order
-    OrderTracking updateOrderStatus(Long orderId, String status);
+	OrderTracking updateOrderStatus(Long orderId, String status);
 
-    // Method to create a new order
-    OrderTracking createOrder(OrderTracking orderTracking);
+	OrderTracking createOrder(OrderTracking orderTracking);
 
-    // Method to delete an order by its ID
-    void deleteOrder(Long orderId);
-    
- // Get order tracking by CreditCardApplication
-    OrderTracking getOrderTrackingByApplication(CreditCardApplication application);
+	void deleteOrder(Long orderId);
+
+	OrderTracking getOrderTrackingByApplication(CreditCardApplication application);
 }

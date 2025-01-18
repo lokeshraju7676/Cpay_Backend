@@ -5,9 +5,7 @@ import java.util.List;
 
 public interface TransactionService {
 
-    // Record a transaction
-    Transaction recordTransaction(Transaction transaction);
+	Transaction recordTransaction(Transaction transaction);
 
-    // Get transactions by card number
-    List<Transaction> getTransactionsByCardNumber(String cardNumber);
+	List<Transaction> getTransactionsByCardNumber(String cardNumber);
 }

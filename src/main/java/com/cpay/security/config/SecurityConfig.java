@@ -50,7 +50,8 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 				// Authorize requests
-				.authorizeHttpRequests(authorize -> authorize.requestMatchers("/api/applications/apply").authenticated()
+				.authorizeHttpRequests(authorize -> authorize
+						.requestMatchers("/api/applications/apply").authenticated()
 						.requestMatchers("/api/applications/{userId}").authenticated()
 						.requestMatchers("/api/orders/track/{orderId}").permitAll()
 						.requestMatchers("api/order/updateStatus/{orderId}/status").permitAll()

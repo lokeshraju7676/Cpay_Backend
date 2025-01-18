@@ -6,6 +6,5 @@ import com.cpay.entities.CreditCardDetails;
 
 public interface CreditCardDetailsRepository extends CrudRepository<CreditCardDetails, Long> {
 
-    // Find CreditCardDetails by card number
-    CreditCardDetails findByCardNumber(String cardNumber);
+	CreditCardDetails findByCardNumber(String cardNumber);
 }
