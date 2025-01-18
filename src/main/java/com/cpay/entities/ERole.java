@@ -20,7 +20,8 @@ public enum ERole {
     public enum EApplicationStatus {
         PENDING("Pending"),
         APPROVED("Approved"),
-        REJECTED("Rejected");
+        REJECTED("Rejected"),
+        COMPLETED("Completed"); // New status added
 
         private String displayName;
 
@@ -40,7 +41,8 @@ public enum ERole {
         IN_TRANSIT("In Transit"),
         DELIVERED("Delivered"),
         CANCELLED("Cancelled"),
-        PENDING("Pending");
+        PENDING("Pending"),
+        COMPLETED("Completed"); // New status added
 
         private String displayName;
 

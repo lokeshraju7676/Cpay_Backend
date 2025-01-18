@@ -19,39 +19,32 @@ import com.cpay.service.CreditCardApplicationService;
 @RequestMapping("/api/applications")
 public class CreditCardApplicationController {
 
-    @Autowired
-    private CreditCardApplicationService applicationService;
+	@Autowired
+	private CreditCardApplicationService applicationService;
 
-    @PreAuthorize("hasRole('Customer')")
-    @PostMapping("/apply")
-    public ResponseEntity<CreditCardApplication> applyForCreditCard(@RequestBody CreditCardApplication application) {
-        CreditCardApplication savedApplication = applicationService.applyForCreditCard(application);
-        return ResponseEntity.ok(savedApplication);
-    }
+	@PreAuthorize("hasRole('Customer')")
+	@PostMapping("/apply")
+	public ResponseEntity<CreditCardApplication> applyForCreditCard(@RequestBody CreditCardApplication application) {
+		CreditCardApplication savedApplication = applicationService.applyForCreditCard(application);
+		return ResponseEntity.ok(savedApplication);
+	}
 
-    @GetMapping("/{username}")
-    public ResponseEntity<Iterable<CreditCardApplication>> getApplicationsByUserId(@PathVariable String username) {
-        Iterable<CreditCardApplication> applications = applicationService.getApplicationsByUserId(username);
-        return ResponseEntity.ok(applications);
-    }
-    
-    
-	/*
-	 * //Admin related Methods
-	 * 
-	 * @PreAuthorize("hasRole('ADMIN')")
-	 * 
-	 * @PostMapping("/approve/{id}") public ResponseEntity<CreditCardApplication>
-	 * approveApplication(@PathVariable Long id) { CreditCardApplication
-	 * approvedApplication = applicationService.approveApplication(id); return
-	 * ResponseEntity.ok(approvedApplication); }
-	 * 
-	 * @PreAuthorize("hasRole('ADMIN')")
-	 * 
-	 * @PostMapping("/reject/{id}") public ResponseEntity<CreditCardApplication>
-	 * rejectApplication(@PathVariable Long id) { CreditCardApplication
-	 * rejectedApplication = applicationService.rejectApplication(id); return
-	 * ResponseEntity.ok(rejectedApplication); }
-	 */    
-    
+	@GetMapping("/{username}")
+	public ResponseEntity<Iterable<CreditCardApplication>> getApplicationsByUserId(@PathVariable String username) {
+		Iterable<CreditCardApplication> applications = applicationService.getApplicationsByUserId(username);
+		return ResponseEntity.ok(applications);
+	}
+
+	// New endpoint to get application details by Order ID
+	@PreAuthorize("hasRole('Admin')")
+	@GetMapping("/details/{orderId}")
+	public ResponseEntity<CreditCardApplication> getApplicationByOrderId(@PathVariable String orderId) {
+		CreditCardApplication application = applicationService.getApplicationByOrderId(orderId);
+		if (application != null) {
+			return ResponseEntity.ok(application);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
 }

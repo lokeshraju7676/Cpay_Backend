@@ -5,15 +5,22 @@ import com.cpay.entities.OrderTracking;
 
 public interface CreditCardApplicationService {
 
-    CreditCardApplication applyForCreditCard(CreditCardApplication application);
+	// Existing methods
+	CreditCardApplication applyForCreditCard(CreditCardApplication application);
 
-    Iterable<CreditCardApplication> getApplicationsByUserId(String username);
+	Iterable<CreditCardApplication> getApplicationsByUserId(String username);
 
-    // Admin Related methods
-    CreditCardApplication approveApplication(Long applicationId);
+	CreditCardApplication approveApplication(Long applicationId);
 
-    CreditCardApplication rejectApplication(Long applicationId);
+	CreditCardApplication rejectApplication(Long applicationId);
 
-    // New method to create order tracking
-    OrderTracking createOrderTracking(CreditCardApplication application);
+	OrderTracking createOrderTracking(CreditCardApplication application, Long orderId);
+
+	void updateOrderStatusBasedOnApplicationStatus(CreditCardApplication application);
+
+	// Add this method to fetch an application by ID
+	CreditCardApplication getApplicationById(Long id);
+
+	// Add the new method to fetch an application by Order ID
+	CreditCardApplication getApplicationByOrderId(String orderId);
 }

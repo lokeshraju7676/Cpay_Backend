@@ -16,19 +16,12 @@ import com.cpay.service.TransactionService;
 @RequestMapping("/api/transactions")
 public class TransactionController {
 
-    @Autowired
-    private TransactionService transactionService;
+	@Autowired
+	private TransactionService transactionService;
 
-	/*
-	 * @PostMapping("/record") public ResponseEntity<Transaction>
-	 * recordTransaction(@RequestBody Transaction transaction) { Transaction
-	 * savedTransaction = transactionService.recordTransaction(transaction); return
-	 * ResponseEntity.ok(savedTransaction); }
-	 */
-
-    @GetMapping("/card/{cardNumber}")
-    public ResponseEntity<Iterable<Transaction>> getTransactionsByCardNumber(@PathVariable String cardNumber) {
-        Iterable<Transaction> transactions = transactionService.getTransactionsByCardNumber(cardNumber);
-        return ResponseEntity.ok(transactions);
-    }
+	@GetMapping("/card/{cardNumber}")
+	public ResponseEntity<Iterable<Transaction>> getTransactionsByCardNumber(@PathVariable String cardNumber) {
+		Iterable<Transaction> transactions = transactionService.getTransactionsByCardNumber(cardNumber);
+		return ResponseEntity.ok(transactions);
+	}
 }

@@ -21,23 +21,22 @@ import com.cpay.service.UserDetailsServiceImpl;
 public class SecurityConfig {
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
-	public final static String[] PUBLIC_REQUEST_MATCHERS = { "/api/auth/**","/swagger-ui/**","/v3/api-docs/**"};
+	public final static String[] PUBLIC_REQUEST_MATCHERS = { "/api/auth/**", "/swagger-ui/**", "/v3/api-docs/**" };
 
-	
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-        return authConfig.getAuthenticationManager();
-    }
-    
-    @Autowired
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
+		return authConfig.getAuthenticationManager();
+	}
+
+	@Autowired
 	private AuthEntryPointJwt unauthorizedHandler;
 
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
 		return new AuthTokenFilter();
 	}
-   
-    @Bean
+
+	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
@@ -46,50 +45,40 @@ public class SecurityConfig {
 
 		return authProvider;
 	}
-    
+
 	@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            // Authorize requests
-            .authorizeHttpRequests(authorize -> authorize
-            	.requestMatchers("/api/applications/apply").authenticated()
-            	.requestMatchers("/api/applications/{userId}").authenticated()
-            	.requestMatchers("/api/orders/track/{orderId}").permitAll()
-            	.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
-            	//.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
-            	.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
-            	.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("CUSTOMER","ADMIN")
-            	
-            	.requestMatchers("/api/payments/process").hasRole("CUSTOMER")
-            	
-            	
-            	
-            	.requestMatchers("/greet").hasRole("USER")
-            	.requestMatchers("/admingreet").hasRole("ADMIN")
-            	.requestMatchers("/helloworld/hello").authenticated()
-            	.requestMatchers("/bookrestapi/bookapi/book/new").hasRole("ADMIN")
-            	.requestMatchers("/bookrestapi/bookapi/book/delete/**").hasRole("ADMIN")
-            	.requestMatchers("/bookrestapi/bookapi/book/name/**").permitAll()
-            	.requestMatchers("/bookrestapi/bookapi/book/books").permitAll()
-            	.requestMatchers("/bookrestapi/bookapi/test").authenticated()
-            	.requestMatchers("/api/customer/delete/**").hasRole("ADMIN")
-            	.requestMatchers("/api/customer/update").hasRole("ADMIN")
-            	.requestMatchers("/api/customer/new").hasRole("ADMIN")
-            	.requestMatchers("/api/customer/get/**").permitAll()
-            	.requestMatchers("/api/customer/customers").hasAnyRole("USER","ADMIN")
-            	.requestMatchers(PUBLIC_REQUEST_MATCHERS).permitAll()
-               // .anyRequest().authenticated()
-            )
-            // Enable HTTP Basic Authentication
-            //.httpBasic(Customizer.withDefaults())
-            // Disable CSRF for simplicity (not recommended for production)
-            .csrf(csrf -> csrf.disable())
-            .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
-			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-			.authenticationProvider(authenticationProvider())
-			.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-	        return http.build();
-    }
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http
+				// Authorize requests
+				.authorizeHttpRequests(authorize -> authorize.requestMatchers("/api/applications/apply").authenticated()
+						.requestMatchers("/api/applications/{userId}").authenticated()
+						.requestMatchers("/api/orders/track/{orderId}").permitAll()
+						.requestMatchers("api/order/updateStatus/{orderId}/status").permitAll()
+						.requestMatchers("/api/applications/details/{orderId}").permitAll()
+						.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
+					  //.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
+						.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
+						.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("CUSTOMER", "ADMIN")
+
+						.requestMatchers("/api/payments/process").hasRole("CUSTOMER")
+						.requestMatchers("/api/orders/allOrdersWithApplications").permitAll()
+
+						.requestMatchers("/api/users/**").permitAll()
+
+						.requestMatchers("/api/customer/customers").hasAnyRole("USER", "ADMIN")
+						.requestMatchers(PUBLIC_REQUEST_MATCHERS).permitAll()
+				// .anyRequest().authenticated()
+				)
+				// Enable HTTP Basic Authentication
+				// .httpBasic(Customizer.withDefaults())
+				// Disable CSRF for simplicity (not recommended for production)
+				.csrf(csrf -> csrf.disable())
+				.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.authenticationProvider(authenticationProvider())
+				.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+		return http.build();
+	}
 
 	/*
 	 * @Bean public UserDetailsService userDetailsService(PasswordEncoder
@@ -101,11 +90,10 @@ public class SecurityConfig {
 	 * .password(passwordEncoder.encode("admin")) .roles("ADMIN") .build()); return
 	 * manager; }
 	 */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // Use BCrypt password encoder
-        return new BCryptPasswordEncoder();
-    }
-   
-    
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		// Use BCrypt password encoder
+		return new BCryptPasswordEncoder();
+	}
+
 }
