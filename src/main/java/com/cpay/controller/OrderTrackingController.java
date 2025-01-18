@@ -22,7 +22,7 @@ public class OrderTrackingController {
 	private OrderTrackingService orderTrackingService;
 
 	@Autowired
-	private CreditCardApplicationService creditCardApplicationService; // Inject CreditCardApplicationService
+	private CreditCardApplicationService creditCardApplicationService;
 
 	@PreAuthorize("hasRole('Customer')")
 	@GetMapping("/track/{orderId}")
@@ -41,16 +41,16 @@ public class OrderTrackingController {
 		List<OrderTracking> orders = orderTrackingService.getAllOrders();
 
 		for (OrderTracking order : orders) {
-			// Get the associated CreditCardApplication and link it to the OrderTracking
+
 			CreditCardApplication application = creditCardApplicationService
 					.getApplicationById(order.getCreditCardApplication().getId());
-			order.setCreditCardApplication(application); // Ensure the order has its corresponding application
+			order.setCreditCardApplication(application);
 		}
 
 		return ResponseEntity.ok(orders);
 	}
 
-	//@PreAuthorize("hasRole('ADMIN')")
+	// @PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/updateStatus/{orderId}/status")
 	public ResponseEntity<?> updateOrderStatus(@PathVariable Long orderId, @RequestBody String status) {
 		try {

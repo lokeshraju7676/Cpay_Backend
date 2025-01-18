@@ -3,6 +3,7 @@ package com.cpay.entities;
 import java.time.LocalDate;
 
 import com.cpay.entities.ERole.EPaymentStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +25,7 @@ public class Payment {
 	@Column(nullable = false)
 	private Double amount;
 
+	@JsonFormat(pattern = "yyyy-MM-dd") 
 	@Column(nullable = false)
 	private LocalDate paymentDate;
 

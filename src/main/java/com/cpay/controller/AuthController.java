@@ -78,36 +78,31 @@ public class AuthController {
 			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
 		}
 
-		// Create new user's account with the default constructor
 		UserEntity user = new UserEntity();
 		user.setUsername(signUpRequest.getUsername());
 		user.setEmail(signUpRequest.getEmail());
 		user.setPassword(encoder.encode(signUpRequest.getPassword()));
 
-		// Add roles and other properties
 		user.setRoles(getRoles(signUpRequest));
 		user.setAddress(signUpRequest.getAddress());
 		user.setMobile(signUpRequest.getMobile());
 		user.setGender(signUpRequest.getGender());
 
-		// Saving UserEntity to the database
 		userRepository.save(user);
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
 
-	// Get Roles from DB if not present in SignupRequest
 	public Set<Role> getRoles(SignupRequest signupRequest) {
 		Set<String> strRoles = signupRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 
-		// If no roles are provided, assign the default "ROLE_CUSTOMER"
 		if (strRoles == null || strRoles.isEmpty()) {
 			Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
 					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 			roles.add(userRole);
 		} else {
-			// Process the roles provided in the SignupRequest
+
 			strRoles.forEach(role -> {
 				switch (role.toLowerCase()) {
 				case "admin":

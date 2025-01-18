@@ -19,10 +19,9 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public Payment processPayment(Payment payment) {
-		// Save payment
+
 		Payment savedPayment = paymentRepository.save(payment);
 
-		// Create corresponding transaction
 		createTransactionForPayment(savedPayment);
 
 		return savedPayment;

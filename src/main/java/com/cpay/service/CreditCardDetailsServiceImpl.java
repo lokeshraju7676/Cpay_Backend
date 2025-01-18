@@ -9,16 +9,16 @@ import com.cpay.repositories.CreditCardDetailsRepository;
 @Service
 public class CreditCardDetailsServiceImpl implements CreditCardDetailsService {
 
-    @Autowired
-    private CreditCardDetailsRepository creditCardDetailsRepository;
+	@Autowired
+	private CreditCardDetailsRepository creditCardDetailsRepository;
 
-    @Override
-    public CreditCardDetails createCardDetails(CreditCardDetails creditCardDetails) {
-        return creditCardDetailsRepository.save(creditCardDetails);
-    }
+	@Override
+	public CreditCardDetails createCardDetails(CreditCardDetails creditCardDetails) {
+		return creditCardDetailsRepository.save(creditCardDetails);
+	}
 
-    @Override
-    public CreditCardDetails getCardDetailsByCardNumber(String cardNumber) {
-        return creditCardDetailsRepository.findByCardNumber(cardNumber);
-    }
+	@Override
+	public CreditCardDetails getCardDetailsByCardNumber(String cardNumber) {
+		return creditCardDetailsRepository.findByCardNumber(cardNumber);
+	}
 }

@@ -11,16 +11,16 @@ import java.util.List;
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
-    @Autowired
-    private TransactionRepository transactionRepository;
+	@Autowired
+	private TransactionRepository transactionRepository;
 
-    @Override
-    public Transaction recordTransaction(Transaction transaction) {
-        return transactionRepository.save(transaction);
-    }
+	@Override
+	public Transaction recordTransaction(Transaction transaction) {
+		return transactionRepository.save(transaction);
+	}
 
-    @Override
-    public List<Transaction> getTransactionsByCardNumber(String cardNumber) {
-        return transactionRepository.findByCreditCardCardNumber(cardNumber);
-    }
+	@Override
+	public List<Transaction> getTransactionsByCardNumber(String cardNumber) {
+		return transactionRepository.findByCreditCardCardNumber(cardNumber);
+	}
 }

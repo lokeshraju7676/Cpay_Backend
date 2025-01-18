@@ -66,7 +66,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')") // Only admins can delete users
+	@PreAuthorize("hasRole('ADMIN')") 
 	public ResponseEntity<?> deleteUser(@PathVariable Long id) {
 		if (userRepository.existsById(id)) {
 			userRepository.deleteById(id);

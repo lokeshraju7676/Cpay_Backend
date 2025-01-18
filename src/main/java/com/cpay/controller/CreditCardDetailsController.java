@@ -22,15 +22,13 @@ public class CreditCardDetailsController {
 	@Autowired
 	private CreditCardDetailsService creditCardDetailsService;
 
-	// Endpoint to create new credit card details
-	@PreAuthorize("hasRole('ADMIN')") // You can adjust permissions accordingly
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/create")
 	public ResponseEntity<CreditCardDetails> createCardDetails(@RequestBody CreditCardDetails creditCardDetails) {
 		CreditCardDetails savedCardDetails = creditCardDetailsService.createCardDetails(creditCardDetails);
 		return ResponseEntity.ok(savedCardDetails);
 	}
 
-	// Endpoint to get card details by card number
 	@PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
 	@GetMapping("/{cardNumber}")
 	public ResponseEntity<CreditCardDetails> getCardDetailsByCardNumber(@PathVariable String cardNumber) {
