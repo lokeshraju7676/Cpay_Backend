@@ -10,61 +10,57 @@ import jakarta.persistence.*;
 @Entity
 public class CreditCardApplication {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private String applicantName;  // The name of the applicant/cardholder
+	@Column(nullable = false)
+	private String applicantName;
 
-    @Column(nullable = false)
-    private String applicantEmail;  // The email of the applicant
+	@Column(nullable = false)
+	private String applicantEmail;
 
-    @Column(nullable = false)
-    private String mobileNumber;  // Applicant's mobile number
+	@Column(nullable = false)
+	private String mobileNumber;
 
-    @Column(nullable = false)
-    private String employmentStatus;  // Applicant's employment status
+	@Column(nullable = false)
+	private String employmentStatus;
 
-    @Column(nullable = false)
-    private Double annualIncome;  // Applicant's annual income
+	@Column(nullable = false)
+	private Double annualIncome;
 
-    @Column(nullable = false)
-    private String address;  // Applicant's residential address
+	@Column(nullable = false)
+	private String address;
 
-    @Column(nullable = false)
-    private LocalDate applicationDate;  // Date the application was made
+	@Column(nullable = false)
+	private LocalDate applicationDate;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ERole.EApplicationStatus applicationStatus;  // Application status (e.g., approved, pending)
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private ERole.EApplicationStatus applicationStatus;
 
-    // One-to-One relationship with OrderTracking
-    @OneToOne(mappedBy = "creditCardApplication", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private OrderTracking orderTracking;  // Link to the order tracking
+	// One-to-One relationship with OrderTracking
+	@OneToOne(mappedBy = "creditCardApplication", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private OrderTracking orderTracking; // Link to the order tracking
 
-    @Column(nullable = false)
-    private String username;  // Username of the applicant (can be used for linking with the User table)
+	@Column(nullable = false)
+	private String username;
 
-    // Getters and Setters
-    
-    // ... (Getters and Setters for each field)
-
-    // Constructor for initialization
-    public CreditCardApplication(String applicantName, String applicantEmail, String mobileNumber,
-                                  String employmentStatus, Double annualIncome, String address, LocalDate applicationDate,
-                                  EApplicationStatus applicationStatus, String username) {
-        this.applicantName = applicantName;
-        this.applicantEmail = applicantEmail;
-        this.mobileNumber = mobileNumber;
-        this.employmentStatus = employmentStatus;
-        this.annualIncome = annualIncome;
-        this.address = address;
-        this.applicationDate = applicationDate;
-        this.applicationStatus = applicationStatus;
-        this.username = username;
-    }
+	// Constructor for initialization
+	public CreditCardApplication(String applicantName, String applicantEmail, String mobileNumber,
+			String employmentStatus, Double annualIncome, String address, LocalDate applicationDate,
+			EApplicationStatus applicationStatus, String username) {
+		this.applicantName = applicantName;
+		this.applicantEmail = applicantEmail;
+		this.mobileNumber = mobileNumber;
+		this.employmentStatus = employmentStatus;
+		this.annualIncome = annualIncome;
+		this.address = address;
+		this.applicationDate = applicationDate;
+		this.applicationStatus = applicationStatus;
+		this.username = username;
+	}
 
 	public CreditCardApplication() {
 		// TODO Auto-generated constructor stub

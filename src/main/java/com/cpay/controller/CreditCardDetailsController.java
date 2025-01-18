@@ -19,26 +19,26 @@ import com.cpay.service.CreditCardDetailsService;
 @RequestMapping("/api/carddetails")
 public class CreditCardDetailsController {
 
-    @Autowired
-    private CreditCardDetailsService creditCardDetailsService;
+	@Autowired
+	private CreditCardDetailsService creditCardDetailsService;
 
-    // Endpoint to create new credit card details
-    @PreAuthorize("hasRole('ADMIN')") // You can adjust permissions accordingly
-    @PostMapping("/create")
-    public ResponseEntity<CreditCardDetails> createCardDetails(@RequestBody CreditCardDetails creditCardDetails) {
-        CreditCardDetails savedCardDetails = creditCardDetailsService.createCardDetails(creditCardDetails);
-        return ResponseEntity.ok(savedCardDetails);
-    }
+	// Endpoint to create new credit card details
+	@PreAuthorize("hasRole('ADMIN')") // You can adjust permissions accordingly
+	@PostMapping("/create")
+	public ResponseEntity<CreditCardDetails> createCardDetails(@RequestBody CreditCardDetails creditCardDetails) {
+		CreditCardDetails savedCardDetails = creditCardDetailsService.createCardDetails(creditCardDetails);
+		return ResponseEntity.ok(savedCardDetails);
+	}
 
- // Endpoint to get card details by card number
-    @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
-    @GetMapping("/{cardNumber}")
-    public ResponseEntity<CreditCardDetails> getCardDetailsByCardNumber(@PathVariable String cardNumber) {
-        CreditCardDetails cardDetails = creditCardDetailsService.getCardDetailsByCardNumber(cardNumber);
-        if (cardDetails != null) {
-            return ResponseEntity.ok(cardDetails);
-        } else {
-            return ResponseEntity.status(404).body(null);
-        }
-    }
+	// Endpoint to get card details by card number
+	@PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
+	@GetMapping("/{cardNumber}")
+	public ResponseEntity<CreditCardDetails> getCardDetailsByCardNumber(@PathVariable String cardNumber) {
+		CreditCardDetails cardDetails = creditCardDetailsService.getCardDetailsByCardNumber(cardNumber);
+		if (cardDetails != null) {
+			return ResponseEntity.ok(cardDetails);
+		} else {
+			return ResponseEntity.status(404).body(null);
+		}
+	}
 }

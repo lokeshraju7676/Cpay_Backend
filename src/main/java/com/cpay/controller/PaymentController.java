@@ -19,19 +19,19 @@ import com.cpay.service.PaymentService;
 @RequestMapping("/api/payments")
 public class PaymentController {
 
-    @Autowired
-    private PaymentService paymentService;
+	@Autowired
+	private PaymentService paymentService;
 
-    @PreAuthorize("hasRole('CUSTOMER')")
-    @PostMapping("/process")
-    public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
-        Payment processedPayment = paymentService.processPayment(payment);
-        return ResponseEntity.ok(processedPayment);
-    }
+	@PreAuthorize("hasRole('CUSTOMER')")
+	@PostMapping("/process")
+	public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
+		Payment processedPayment = paymentService.processPayment(payment);
+		return ResponseEntity.ok(processedPayment);
+	}
 
-    @GetMapping("/card/{cardNumber}")
-    public ResponseEntity<Payment> getPaymentByCardNumber(@PathVariable String cardNumber) {
-        Payment payment = paymentService.getPaymentByCardNumber(cardNumber);
-        return ResponseEntity.ok(payment);
-    }
+	@GetMapping("/card/{cardNumber}")
+	public ResponseEntity<Payment> getPaymentByCardNumber(@PathVariable String cardNumber) {
+		Payment payment = paymentService.getPaymentByCardNumber(cardNumber);
+		return ResponseEntity.ok(payment);
+	}
 }
