@@ -143,4 +143,43 @@ public class CreditCardApplicationServiceImpl implements CreditCardApplicationSe
 		// Save the updated OrderTracking
 		orderTrackingRepository.save(orderTracking);
 	}
+	
+	
+	 @Override
+	    public Iterable<CreditCardApplication> getAllApplications() {
+	        return applicationRepository.findAll(); // Fetch all applications from the repository
+	    }
+	 
+	 
+	 
+	 @Override
+	    public CreditCardApplication updateApplication(Long id, CreditCardApplication updatedApplication) {
+	        // Fetch the existing application
+	        CreditCardApplication existingApplication = applicationRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException("Application not found with id: " + id));
+
+	        // Update the fields (you can update only specific fields here)
+	        existingApplication.setApplicantName(updatedApplication.getApplicantName());
+	        existingApplication.setApplicantEmail(updatedApplication.getApplicantEmail());
+	        existingApplication.setAnnualIncome(updatedApplication.getAnnualIncome());
+	        existingApplication.setEmploymentStatus(updatedApplication.getEmploymentStatus());
+	        existingApplication.setMobileNumber(updatedApplication.getMobileNumber());
+	        existingApplication.setAddress(updatedApplication.getAddress());
+	        existingApplication.setApplicationStatus(updatedApplication.getApplicationStatus());
+	        existingApplication.setUsername(updatedApplication.getUsername());
+
+	        // Save the updated application
+	        return applicationRepository.save(existingApplication);
+	    }
+
+	 
+	 // Implement the delete method
+	    @Override
+	    public boolean deleteApplication(Long id) {
+	        if (applicationRepository.existsById(id)) {
+	            applicationRepository.deleteById(id);
+	            return true; // Successfully deleted
+	        }
+	        return false; // Application not found
+	    }
 }

@@ -51,17 +51,23 @@ public class SecurityConfig {
 		http
 				// Authorize requests
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers("/api/applications/apply").authenticated()
+						.requestMatchers("/api/applications/apply").permitAll()
+						.requestMatchers("/api/applications/all").permitAll()
+						.requestMatchers("api/applications/{id}").permitAll()
+						.requestMatchers("api/applications/delete/{id}").permitAll()
 						.requestMatchers("/api/applications/{userId}").authenticated()
 						.requestMatchers("/api/orders/track/{orderId}").permitAll()
-						.requestMatchers("api/order/updateStatus/{orderId}/status").permitAll()
+						.requestMatchers("api/order/updateStatus/{orderId}/status").hasRole("ADMIN")
 						.requestMatchers("/api/applications/details/{orderId}").permitAll()
-						.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
+						//.requestMatchers("/api/payments/**").hasRole("CUSTOMER")
 					  //.requestMatchers("/api/transactions/**").hasRole("CUSTOMER")
 						.requestMatchers("/api/carddetails/create").hasRole("ADMIN")
-						.requestMatchers("/api/carddetails/{cardNumber}").hasAnyRole("CUSTOMER", "ADMIN")
+						.requestMatchers("/api/carddetails/{cardNumber}").permitAll()
+						//.requestMatchers("/api/carddetails/all").permitAll()
+						
 
-						.requestMatchers("/api/payments/process").hasRole("CUSTOMER")
+						.requestMatchers("/api/payments/process").permitAll()
+						//.requestMatchers("/api/payments/card/{cardNumber}").permitAll()
 						.requestMatchers("/api/orders/allOrdersWithApplications").permitAll()
 
 						.requestMatchers("/api/users/**").permitAll()

@@ -8,4 +8,5 @@ import com.cpay.entities.CreditCardApplication;
 public interface CreditCardApplicationRepository extends CrudRepository<CreditCardApplication, Long> {
 
 	Iterable<CreditCardApplication> findByUsername(String username);
+	Iterable<CreditCardApplication> findAll(); 
 }

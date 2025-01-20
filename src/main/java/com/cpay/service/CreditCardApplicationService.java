@@ -20,4 +20,13 @@ public interface CreditCardApplicationService {
 	CreditCardApplication getApplicationById(Long id);
 
 	CreditCardApplication getApplicationByOrderId(String orderId);
+	
+	Iterable<CreditCardApplication> getAllApplications();
+	
+	 // New methods for update and delete
+    CreditCardApplication updateApplication(Long id, CreditCardApplication updatedApplication);
+
+	
+	 // New method to delete a credit card application by ID
+    boolean deleteApplication(Long id);  // Method signature
 }

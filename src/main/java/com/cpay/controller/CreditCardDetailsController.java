@@ -1,5 +1,7 @@
 package com.cpay.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,7 +31,7 @@ public class CreditCardDetailsController {
 		return ResponseEntity.ok(savedCardDetails);
 	}
 
-	@PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
 	@GetMapping("/{cardNumber}")
 	public ResponseEntity<CreditCardDetails> getCardDetailsByCardNumber(@PathVariable String cardNumber) {
 		CreditCardDetails cardDetails = creditCardDetailsService.getCardDetailsByCardNumber(cardNumber);
@@ -39,4 +41,15 @@ public class CreditCardDetailsController {
 			return ResponseEntity.status(404).body(null);
 		}
 	}
+	
+	/*
+	 * // New endpoint to fetch all card details
+	 * 
+	 * @PreAuthorize("hasRole('CUSTOMER')")
+	 * 
+	 * @GetMapping("/all") public ResponseEntity<List<CreditCardDetails>>
+	 * getAllCardDetails() { List<CreditCardDetails> cardDetailsList =
+	 * creditCardDetailsService.getAllCardDetails(); return
+	 * ResponseEntity.ok(cardDetailsList); }
+	 */
 }
