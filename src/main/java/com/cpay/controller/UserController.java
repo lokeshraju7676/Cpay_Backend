@@ -31,7 +31,7 @@ public class UserController {
         logger.info("Successfully retrieved {} users.", users.size());
         return ResponseEntity.ok(users);
     }
-
+    
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
         logger.info("Fetching user by ID: {}", id);
