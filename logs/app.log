@@ -1,0 +1,332 @@
+2025-01-20T10:41:20.678+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : Starting CpayApplication using Java 21.0.5 with PID 25628 (C:\Users\lokesh.raju\eclipse-workspace\Cpay\target\classes started by lokesh.raju in C:\Users\lokesh.raju\eclipse-workspace\Cpay)
+2025-01-20T10:41:20.686+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T10:41:20.806+05:30  INFO 25628 --- [Cpay] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-20T10:41:20.807+05:30  INFO 25628 --- [Cpay] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-20T10:41:22.738+05:30  INFO 25628 --- [Cpay] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T10:41:22.893+05:30  INFO 25628 --- [Cpay] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 7 JPA repository interfaces.
+2025-01-20T10:41:23.222+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fd782659-6ade-34ad-a5b5-cc49b4e34a50
+2025-01-20T10:41:24.115+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-20T10:41:24.143+05:30  INFO 25628 --- [Cpay] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T10:41:24.143+05:30  INFO 25628 --- [Cpay] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-20T10:41:24.324+05:30  INFO 25628 --- [Cpay] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T10:41:24.325+05:30  INFO 25628 --- [Cpay] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3497 ms
+2025-01-20T10:41:24.779+05:30  INFO 25628 --- [Cpay] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T10:41:24.896+05:30  INFO 25628 --- [Cpay] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-20T10:41:24.970+05:30  INFO 25628 --- [Cpay] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T10:41:25.541+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T10:41:25.601+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-20T10:41:26.356+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@148d6118
+2025-01-20T10:41:26.364+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-20T10:41:26.509+05:30  WARN 25628 --- [Cpay] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-20T10:41:28.773+05:30  INFO 25628 --- [Cpay] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T10:41:28.984+05:30  INFO 25628 --- [Cpay] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T10:41:29.465+05:30  INFO 25628 --- [Cpay] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-01-20T10:41:29.466+05:30  WARN 25628 --- [Cpay] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-01-20T10:41:29.839+05:30  WARN 25628 --- [Cpay] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T10:41:30.166+05:30 DEBUG 25628 --- [Cpay] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, AuthTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-01-20T10:41:30.531+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-20T10:41:30.705+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-20T10:41:30.734+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : Started CpayApplication in 10.797 seconds (process running for 12.641)
+2025-01-20T10:48:02.750+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-20T10:48:02.750+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-20T10:48:02.750+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-01-20T10:48:02.798+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/auth/signup
+2025-01-20T10:48:02.814+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-01-20T10:48:02.832+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured OPTIONS /api/auth/signup
+2025-01-20T10:48:02.974+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/signup
+2025-01-20T10:48:02.974+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-01-20T10:48:02.974+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/signup
+2025-01-20T10:49:51.953+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/auth/signin
+2025-01-20T10:49:51.953+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-01-20T10:49:51.953+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured OPTIONS /api/auth/signin
+2025-01-20T10:49:52.041+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/signin
+2025-01-20T10:49:52.041+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-01-20T10:49:52.041+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/signin
+2025-01-20T10:49:52.258+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-5] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: lokesh
+2025-01-20T10:49:52.274+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-5] c.cpay.service.UserDetailsServiceImpl    : User found with username: lokesh
+2025-01-20T10:49:52.481+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-01-20T10:50:27.739+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing OPTIONS /api/applications/apply
+2025-01-20T10:50:27.739+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-01-20T10:50:27.739+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured OPTIONS /api/applications/apply
+2025-01-20T10:50:27.818+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/applications/apply
+2025-01-20T10:50:27.882+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: lokesh
+2025-01-20T10:50:27.882+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.cpay.service.UserDetailsServiceImpl    : User found with username: lokesh
+2025-01-20T10:50:27.897+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/applications/apply
+2025-01-20T10:50:27.914+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.c.CreditCardApplicationController    : Received credit card application request for user: anoop dragon
+2025-01-20T10:50:27.914+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : Applying for a new credit card for user: anoop dragon
+2025-01-20T10:50:27.993+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : Credit card application saved with ID: 46
+2025-01-20T10:50:27.993+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : Creating OrderTracking for application with ID: 46
+2025-01-20T10:50:28.009+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : OrderTracking created for application ID: 46
+2025-01-20T10:50:28.025+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : Updating order status based on application status for application ID: 46
+2025-01-20T10:50:28.041+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.s.CreditCardApplicationServiceImpl   : Order status updated for application ID: 46
+2025-01-20T10:50:28.041+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-7] c.c.c.CreditCardApplicationController    : Successfully saved credit card application for user: anoop dragon
+2025-01-20T10:52:32.357+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /api/applications/apply
+2025-01-20T10:52:32.382+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-9] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: lokesh
+2025-01-20T10:52:32.382+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-9] c.cpay.service.UserDetailsServiceImpl    : User found with username: lokesh
+2025-01-20T10:52:32.382+05:30 DEBUG 25628 --- [Cpay] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /api/applications/apply
+2025-01-20T10:52:32.398+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-9] c.c.c.CreditCardApplicationController    : Received credit card application request for user: jguvh
+2025-01-20T10:52:32.398+05:30  INFO 25628 --- [Cpay] [http-nio-8080-exec-9] c.c.s.CreditCardApplicationServiceImpl   : Applying for a new credit card for user: jguvh
+2025-01-20T10:52:32.494+05:30  WARN 25628 --- [Cpay] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2025-01-20T10:52:32.494+05:30 ERROR 25628 --- [Cpay] [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'annual_income' cannot be null
+2025-01-20T10:52:32.510+05:30 ERROR 25628 --- [Cpay] [http-nio-8080-exec-9] c.c.c.CreditCardApplicationController    : Error occurred while applying for credit card for user: jguvh. Error: could not execute statement [Column 'annual_income' cannot be null] [insert into credit_card_application (address,annual_income,applicant_email,applicant_name,application_date,application_status,employment_status,mobile_number,username) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into credit_card_application (address,annual_income,applicant_email,applicant_name,application_date,application_status,employment_status,mobile_number,username) values (?,?,?,?,?,?,?,?,?)]; constraint [null]
+2025-01-20T11:00:18.868+05:30  WARN 25628 --- [Cpay] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m22s106ms287µs900ns).
+2025-01-20T11:01:12.137+05:30  INFO 25628 --- [Cpay] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-01-20T11:01:12.211+05:30  INFO 25628 --- [Cpay] [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:01:12.232+05:30  INFO 25628 --- [Cpay] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-20T11:01:12.274+05:30  INFO 25628 --- [Cpay] [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-20T11:01:12.639+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : Starting CpayApplication using Java 21.0.5 with PID 25628 (C:\Users\lokesh.raju\eclipse-workspace\Cpay\target\classes started by lokesh.raju in C:\Users\lokesh.raju\eclipse-workspace\Cpay)
+2025-01-20T11:01:12.639+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:01:13.602+05:30  INFO 25628 --- [Cpay] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T11:01:13.742+05:30  INFO 25628 --- [Cpay] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139 ms. Found 7 JPA repository interfaces.
+2025-01-20T11:01:13.869+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fd782659-6ade-34ad-a5b5-cc49b4e34a50
+2025-01-20T11:01:14.055+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-20T11:01:14.058+05:30  INFO 25628 --- [Cpay] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T11:01:14.059+05:30  INFO 25628 --- [Cpay] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-20T11:01:14.170+05:30  INFO 25628 --- [Cpay] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T11:01:14.170+05:30  INFO 25628 --- [Cpay] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1512 ms
+2025-01-20T11:01:14.285+05:30  INFO 25628 --- [Cpay] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T11:01:14.291+05:30  INFO 25628 --- [Cpay] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T11:01:14.309+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T11:01:14.313+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-01-20T11:01:14.364+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30fb8ef1
+2025-01-20T11:01:14.364+05:30  INFO 25628 --- [Cpay] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-01-20T11:01:14.366+05:30  WARN 25628 --- [Cpay] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-20T11:01:14.711+05:30  INFO 25628 --- [Cpay] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T11:01:14.815+05:30  INFO 25628 --- [Cpay] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:01:14.963+05:30  INFO 25628 --- [Cpay] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-01-20T11:01:14.964+05:30  WARN 25628 --- [Cpay] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-01-20T11:01:15.098+05:30  WARN 25628 --- [Cpay] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T11:01:15.247+05:30 DEBUG 25628 --- [Cpay] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, AuthTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-01-20T11:01:15.528+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-20T11:01:15.655+05:30  INFO 25628 --- [Cpay] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-20T11:01:15.681+05:30  INFO 25628 --- [Cpay] [restartedMain] com.cpay.CpayApplication                 : Started CpayApplication in 3.263 seconds (process running for 1197.588)
+2025-01-20T11:01:15.685+05:30  INFO 25628 --- [Cpay] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-01-20T11:06:57.211+05:30  WARN 25628 --- [Cpay] [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=2m12s707ms299µs900ns).
+2025-01-20T11:18:34.407+05:30  INFO 25628 --- [Cpay] [RMI TCP Connection(38)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-01-20T11:18:34.429+05:30  INFO 25628 --- [Cpay] [RMI TCP Connection(38)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:18:34.430+05:30  INFO 25628 --- [Cpay] [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-01-20T11:18:34.440+05:30  INFO 25628 --- [Cpay] [RMI TCP Connection(38)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-01-20T11:30:43.145+05:30  INFO 1928 --- [Cpay] [main] c.c.r.CreditCardDetailsRepositoryTest    : Starting CreditCardDetailsRepositoryTest using Java 21.0.5 with PID 1928 (started by lokesh.raju in C:\Users\lokesh.raju\eclipse-workspace\Cpay)
+2025-01-20T11:30:43.152+05:30  INFO 1928 --- [Cpay] [main] c.c.r.CreditCardDetailsRepositoryTest    : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:30:45.917+05:30  INFO 1928 --- [Cpay] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T11:30:46.113+05:30  INFO 1928 --- [Cpay] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 7 JPA repository interfaces.
+2025-01-20T11:30:46.744+05:30  INFO 1928 --- [Cpay] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c4a13811-d78f-3b36-b0a8-869b465d2d9c
+2025-01-20T11:30:47.726+05:30  INFO 1928 --- [Cpay] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T11:30:47.972+05:30  INFO 1928 --- [Cpay] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-20T11:30:48.064+05:30  INFO 1928 --- [Cpay] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T11:30:48.748+05:30  INFO 1928 --- [Cpay] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T11:30:48.793+05:30  INFO 1928 --- [Cpay] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-20T11:30:49.512+05:30  INFO 1928 --- [Cpay] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@687e561b
+2025-01-20T11:30:49.519+05:30  INFO 1928 --- [Cpay] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-20T11:30:49.613+05:30  WARN 1928 --- [Cpay] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-20T11:30:52.510+05:30  INFO 1928 --- [Cpay] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T11:30:52.691+05:30  INFO 1928 --- [Cpay] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:53.786+05:30  INFO 1928 --- [Cpay] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-01-20T11:30:53.788+05:30  WARN 1928 --- [Cpay] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2025-01-20T11:30:54.387+05:30  WARN 1928 --- [Cpay] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T11:30:55.209+05:30 DEBUG 1928 --- [Cpay] [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, AuthTokenFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-01-20T11:30:56.308+05:30  INFO 1928 --- [Cpay] [main] c.c.r.CreditCardDetailsRepositoryTest    : Started CreditCardDetailsRepositoryTest in 14.163 seconds (process running for 17.848)
+2025-01-20T11:30:58.267+05:30  INFO 1928 --- [Cpay] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cpay.repositories.CreditCardApplicationRepositoryTest]: CreditCardApplicationRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-20T11:30:58.271+05:30  INFO 1928 --- [Cpay] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cpay.CpayApplication for test class com.cpay.repositories.CreditCardApplicationRepositoryTest
+2025-01-20T11:30:59.214+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : Fetching credit card details for card number: 1234567890123456
+2025-01-20T11:30:59.239+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : Found credit card details for card number: 1234567890123456
+2025-01-20T11:30:59.338+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : Creating new credit card details for card number: 1234567890123456
+2025-01-20T11:30:59.353+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : Credit card details saved for card number: 1234567890123456
+2025-01-20T11:30:59.369+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : Fetching credit card details for card number: nonexistentcardnumber
+2025-01-20T11:30:59.371+05:30  WARN 1928 --- [Cpay] [main] c.c.s.CreditCardDetailsServiceImpl       : No credit card details found for card number: nonexistentcardnumber
+2025-01-20T11:30:59.471+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : Fetching transactions for card number: 0000000000000000
+2025-01-20T11:30:59.472+05:30  WARN 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : No transactions found for card number: 0000000000000000
+2025-01-20T11:30:59.483+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : Recording transaction for card number: 1234567890123456
+2025-01-20T11:30:59.484+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : Transaction recorded successfully with ID: null
+2025-01-20T11:30:59.495+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : Fetching transactions for card number: 1234567890123456
+2025-01-20T11:30:59.496+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.TransactionServiceImpl    : Found 1 transactions for card number: 1234567890123456
+2025-01-20T11:30:59.508+05:30  INFO 1928 --- [Cpay] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cpay.service.PaymentServiceImplTest]: PaymentServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-20T11:30:59.589+05:30  INFO 1928 --- [Cpay] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cpay.CpayApplication for test class com.cpay.service.PaymentServiceImplTest
+2025-01-20T11:30:59.691+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Processing payment for card number: 1234567890123456
+2025-01-20T11:30:59.692+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Payment processed successfully with ID: null
+2025-01-20T11:30:59.692+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Creating transaction for payment ID: null
+2025-01-20T11:30:59.692+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Transaction created with ID: null
+2025-01-20T11:30:59.714+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Processing payment for card number: 1234567890123456
+2025-01-20T11:30:59.715+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Payment processed successfully with ID: null
+2025-01-20T11:30:59.716+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Creating transaction for payment ID: null
+2025-01-20T11:30:59.717+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Transaction created with ID: null
+2025-01-20T11:30:59.739+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Fetching payment for card number: 1234567890123456
+2025-01-20T11:30:59.742+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Found payment with ID: null
+2025-01-20T11:30:59.762+05:30  INFO 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Fetching payment for card number: nonexistentcardnumber
+2025-01-20T11:30:59.764+05:30 ERROR 1928 --- [Cpay] [main] com.cpay.service.PaymentServiceImpl      : Payment not found for card number: nonexistentcardnumber
+2025-01-20T11:30:59.860+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Updating order status for order ID: 99999 to DISPATCHED
+2025-01-20T11:30:59.861+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order not found with ID: 99999
+2025-01-20T11:30:59.874+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Deleting order with ID: 99999
+2025-01-20T11:30:59.875+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order not found with ID: 99999
+2025-01-20T11:30:59.884+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Creating a new order with ID: 12345
+2025-01-20T11:30:59.885+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order created successfully with ID: 12345
+2025-01-20T11:30:59.897+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Fetching order tracking for application ID: 1
+2025-01-20T11:30:59.897+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Found order tracking for application ID: 1
+2025-01-20T11:30:59.906+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Fetching all orders
+2025-01-20T11:30:59.907+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Retrieved 1 orders
+2025-01-20T11:30:59.917+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Tracking order with ID: 99999
+2025-01-20T11:30:59.918+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order not found with ID: 99999
+2025-01-20T11:30:59.929+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Fetching order tracking for application ID: 1
+2025-01-20T11:30:59.930+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order tracking not found for application ID: 1
+2025-01-20T11:30:59.940+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Tracking order with ID: 12345
+2025-01-20T11:30:59.941+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Found order with ID: 12345
+2025-01-20T11:30:59.949+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Deleting order with ID: 12345
+2025-01-20T11:30:59.951+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order with ID: 12345 deleted successfully
+2025-01-20T11:30:59.960+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Updating order status for order ID: 12345 to COMPLETED
+2025-01-20T11:30:59.961+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.OrderTrackingServiceImpl  : Order status updated to: COMPLETED for order ID: 12345
+2025-01-20T11:31:00.060+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Updating order status based on application status for application ID: 1
+2025-01-20T11:31:00.064+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Order status updated for application ID: 1
+2025-01-20T11:31:00.072+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Updating order status based on application status for application ID: 1
+2025-01-20T11:31:00.073+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Order status updated for application ID: 1
+2025-01-20T11:31:00.080+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Updating order status based on application status for application ID: 1
+2025-01-20T11:31:00.081+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Order status updated for application ID: 1
+2025-01-20T11:31:00.089+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Updating order status based on application status for application ID: 1
+2025-01-20T11:31:00.090+05:30  INFO 1928 --- [Cpay] [main] c.c.s.CreditCardApplicationServiceImpl   : Order status updated for application ID: 1
+2025-01-20T11:31:00.175+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: testuser
+2025-01-20T11:31:00.181+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : User found with username: testuser
+2025-01-20T11:31:00.191+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: null
+2025-01-20T11:31:00.192+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : User not found with username: null
+2025-01-20T11:31:00.200+05:30  INFO 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : Attempting to load user by username: nonexistentuser
+2025-01-20T11:31:00.201+05:30 ERROR 1928 --- [Cpay] [main] c.cpay.service.UserDetailsServiceImpl    : User not found with username: nonexistentuser
+2025-01-20T11:31:00.309+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Received credit card application request for user: testUser
+2025-01-20T11:31:00.309+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Successfully saved credit card application for user: testUser
+2025-01-20T11:31:00.328+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Fetching credit card applications for user: testUser
+2025-01-20T11:31:00.329+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Found 1 credit card applications for user: testUser
+2025-01-20T11:31:00.337+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Fetching details for credit card application with orderId: 99999
+2025-01-20T11:31:00.338+05:30  WARN 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : No credit card application found for orderId: 99999
+2025-01-20T11:31:00.347+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Fetching details for credit card application with orderId: 12345
+2025-01-20T11:31:00.348+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardApplicationController    : Found credit card application for orderId: 12345
+2025-01-20T11:31:00.418+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to delete order with ID: 123
+2025-01-20T11:31:00.419+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully deleted order with ID: 123
+2025-01-20T11:31:00.427+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to update status for order ID: 123 to Shipped
+2025-01-20T11:31:00.428+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully updated status for order ID: 123 to Shipped
+2025-01-20T11:31:00.440+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to create new order with details: com.cpay.entities.OrderTracking@6d03404e
+2025-01-20T11:31:00.441+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully created new order with ID: null
+2025-01-20T11:31:00.448+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to fetch order tracking by application ID: 1
+2025-01-20T11:31:00.449+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully retrieved order tracking for application ID: 1
+2025-01-20T11:31:00.459+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to fetch all orders with applications.
+2025-01-20T11:31:00.460+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully retrieved 1 orders with associated credit card applications.
+2025-01-20T11:31:00.467+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to track order with ID: 123
+2025-01-20T11:31:00.468+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Successfully retrieved order details for order ID: 123
+2025-01-20T11:31:00.480+05:30  INFO 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Received request to track order with ID: 123
+2025-01-20T11:31:00.481+05:30 ERROR 1928 --- [Cpay] [main] c.c.controller.OrderTrackingController   : Order with ID 123 not found
+
+java.lang.RuntimeException: Order not found
+	at com.cpay.controller.OrderTrackingController.trackOrder(OrderTrackingController.java:36) ~[classes/:na]
+	at com.cpay.controller.OrderTrackingControllerTest.testTrackOrderNotFound(OrderTrackingControllerTest.java:80) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.5.jar:1.10.5]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.5.jar:5.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70) ~[junit-platform-launcher-1.10.5.jar:1.10.5]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
+
+2025-01-20T11:31:00.637+05:30  INFO 1928 --- [Cpay] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-01-20T11:31:00.638+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-01-20T11:31:00.639+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-01-20T11:31:00.869+05:30  INFO 1928 --- [Cpay] [main] c.cpay.controller.TransactionController  : Received request to fetch transactions for card number: 1234567890123456
+2025-01-20T11:31:00.871+05:30  WARN 1928 --- [Cpay] [main] c.cpay.controller.TransactionController  : No transactions found for card number: 1234567890123456
+2025-01-20T11:31:01.002+05:30  INFO 1928 --- [Cpay] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-01-20T11:31:01.003+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-01-20T11:31:01.003+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-01-20T11:31:01.007+05:30  INFO 1928 --- [Cpay] [main] c.cpay.controller.TransactionController  : Received request to fetch transactions for card number: 1234567890123456
+2025-01-20T11:31:01.008+05:30  INFO 1928 --- [Cpay] [main] c.cpay.controller.TransactionController  : Successfully retrieved transactions for card number: 1234567890123456
+2025-01-20T11:31:01.355+05:30  INFO 1928 --- [Cpay] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-01-20T11:31:01.356+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-01-20T11:31:01.356+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-01-20T11:31:01.593+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.PaymentController    : Received payment processing request for card number: {}
+2025-01-20T11:31:01.594+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.PaymentController    : Successfully processed payment for card number: {}
+2025-01-20T11:31:01.630+05:30  INFO 1928 --- [Cpay] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-01-20T11:31:01.630+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-01-20T11:31:01.631+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-01-20T11:31:01.634+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.PaymentController    : Received request to fetch payment details for card number: 0000000000000000
+2025-01-20T11:31:01.670+05:30  INFO 1928 --- [Cpay] [main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2025-01-20T11:31:01.670+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-01-20T11:31:01.671+05:30  INFO 1928 --- [Cpay] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-01-20T11:31:01.675+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.PaymentController    : Received request to fetch payment details for card number: 1234567890123456
+2025-01-20T11:31:01.677+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.PaymentController    : Successfully retrieved payment details for card number: 1234567890123456
+2025-01-20T11:31:01.695+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Updating user with ID: 1
+2025-01-20T11:31:01.695+05:30  WARN 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 not found for update.
+2025-01-20T11:31:01.705+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Updating user with ID: 1
+2025-01-20T11:31:01.707+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 updated successfully.
+2025-01-20T11:31:01.718+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Deleting user with ID: 1
+2025-01-20T11:31:01.720+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 deleted successfully.
+2025-01-20T11:31:01.731+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Fetching user by ID: 1
+2025-01-20T11:31:01.732+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 found.
+2025-01-20T11:31:01.743+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Fetching user by ID: 1
+2025-01-20T11:31:01.744+05:30  WARN 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 not found.
+2025-01-20T11:31:01.767+05:30  INFO 1928 --- [Cpay] [main] com.cpay.controller.UserController       : Deleting user with ID: 1
+2025-01-20T11:31:01.768+05:30  WARN 1928 --- [Cpay] [main] com.cpay.controller.UserController       : User with ID 1 not found for deletion.
+2025-01-20T11:31:01.847+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Received request to fetch card details for card number: 1234567812345678
+2025-01-20T11:31:01.847+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Successfully retrieved card details for card number: 1234567812345678
+2025-01-20T11:31:01.855+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Received request to fetch card details for card number: 1234567812345678
+2025-01-20T11:31:01.856+05:30  WARN 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Card details not found for card number: 1234567812345678
+2025-01-20T11:31:01.865+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Received request to create card details for card number: 1234567812345678
+2025-01-20T11:31:01.865+05:30  INFO 1928 --- [Cpay] [main] c.c.c.CreditCardDetailsController        : Successfully created card details for card number: 1234567812345678
+2025-01-20T11:31:01.895+05:30  INFO 1928 --- [Cpay] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cpay.CpayApplicationTests]: CpayApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-20T11:31:01.978+05:30  INFO 1928 --- [Cpay] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cpay.CpayApplication for test class com.cpay.CpayApplicationTests
+2025-01-20T11:31:02.038+05:30  INFO 1928 --- [Cpay] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:31:02.046+05:30  INFO 1928 --- [Cpay] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-20T11:31:02.095+05:30  INFO 1928 --- [Cpay] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

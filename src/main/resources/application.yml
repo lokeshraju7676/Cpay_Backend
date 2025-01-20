@@ -21,12 +21,25 @@ spring:
       enabled: false
 
 # JWT Configuration
-jwtSecret: BLUEYONDERBELLANDURBENGALURUBLUEYONDERBELLANDURBENGALURUBLUEYONDERBELLANDURBENGALURUBENGALURUBLUEYONDERBELLANDURBENGALURUBENGALURUBLUEYONDERBELLANDURBENGALURU
+jwtSecret: BLUEYONDERBELLANDURBENGALURUBLUEYONDERBELLANDURBENGALURUBLUEYONDERBELLANDURBENGALURUBLUEYONDERBELLANDURBENGALURU
 jwtExpirationMs: 86400000
 
-# Logging Configuration
+# Logging Configuration (New addition)
 logging:
   level:
     org.springframework.security: DEBUG
     com.training.basicspringsecuritydemousingdb.security: DEBUG
     org.springframework.web.filter: DEBUG
+    com.cpay.controller: DEBUG # Set logging level for controller package to DEBUG
+    com.cpay.service: INFO     # Set logging level for service package to INFO
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"  # Customize the pattern for the console logs
+
+  file:
+    name: "logs/app.log"                           # Log file location
+    rollingpolicy:
+      file-name-pattern: "logs/%d{yyyy-MM, aux}/app.%d{yyyy-MM-dd}.%i.log"  # The filename pattern used to create log archives
+      max-file-size: 10MB                           # The maximum size of log file before it is archived
+      total-size-cap: 1GB                          # The maximum amount of size log archives can take before being deleted
+      max-history: 10                              # The maximum number of archive log files to keep
