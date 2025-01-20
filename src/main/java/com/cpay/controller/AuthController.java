@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,88 +39,98 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-	@Autowired
-	private UserRepository userRepository;
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class); // Logger instance
 
-	@Autowired
-	private RoleRepository roleRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Autowired
-	private PasswordEncoder encoder;
+    @Autowired
+    private RoleRepository roleRepository;
 
-	@Autowired
-	AuthenticationManager authenticationManager;
+    @Autowired
+    private PasswordEncoder encoder;
 
-	@Autowired
-	JwtUtils jwtUtils;
+    @Autowired
+    AuthenticationManager authenticationManager;
 
-	@PostMapping("/signin")
-	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+    @Autowired
+    JwtUtils jwtUtils;
 
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		String jwt = jwtUtils.generateJwtToken(authentication);
+    @PostMapping("/signin")
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+        logger.info("Attempting to authenticate user: {}", loginRequest.getUsername()); // Log the username for login attempts
 
-		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-		List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
-				.collect(Collectors.toList());
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
-		return ResponseEntity.ok(
-				new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
-	}
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
 
-	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
-		}
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
+                .collect(Collectors.toList());
 
-		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
-		}
+        logger.info("Authentication successful for user: {} with roles: {}", userDetails.getUsername(), roles);
 
-		UserEntity user = new UserEntity();
-		user.setUsername(signUpRequest.getUsername());
-		user.setEmail(signUpRequest.getEmail());
-		user.setPassword(encoder.encode(signUpRequest.getPassword()));
+        return ResponseEntity.ok(
+                new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
+    }
 
-		user.setRoles(getRoles(signUpRequest));
-		user.setAddress(signUpRequest.getAddress());
-		user.setMobile(signUpRequest.getMobile());
-		user.setGender(signUpRequest.getGender());
+    @PostMapping("/signup")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+        logger.info("Attempting to register user: {}", signUpRequest.getUsername()); // Log the username for registration attempts
 
-		userRepository.save(user);
+        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+            logger.error("Error: Username is already taken: {}", signUpRequest.getUsername());
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
+        }
 
-		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-	}
+        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+            logger.error("Error: Email is already in use: {}", signUpRequest.getEmail());
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+        }
 
-	public Set<Role> getRoles(SignupRequest signupRequest) {
-		Set<String> strRoles = signupRequest.getRole();
-		Set<Role> roles = new HashSet<>();
+        UserEntity user = new UserEntity();
+        user.setUsername(signUpRequest.getUsername());
+        user.setEmail(signUpRequest.getEmail());
+        user.setPassword(encoder.encode(signUpRequest.getPassword()));
 
-		if (strRoles == null || strRoles.isEmpty()) {
-			Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
-					.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-			roles.add(userRole);
-		} else {
+        user.setRoles(getRoles(signUpRequest));
+        user.setAddress(signUpRequest.getAddress());
+        user.setMobile(signUpRequest.getMobile());
+        user.setGender(signUpRequest.getGender());
 
-			strRoles.forEach(role -> {
-				switch (role.toLowerCase()) {
-				case "admin":
-					Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(adminRole);
-					break;
-				case "customer":
-				default:
-					Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
-							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-					roles.add(userRole);
-					break;
-				}
-			});
-		}
-		return roles;
-	}
+        userRepository.save(user);
+        logger.info("User successfully registered: {}", signUpRequest.getUsername()); // Log successful registration
+
+        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+    }
+
+    public Set<Role> getRoles(SignupRequest signupRequest) {
+        Set<String> strRoles = signupRequest.getRole();
+        Set<Role> roles = new HashSet<>();
+
+        if (strRoles == null || strRoles.isEmpty()) {
+            Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
+                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+            roles.add(userRole);
+        } else {
+            strRoles.forEach(role -> {
+                switch (role.toLowerCase()) {
+                case "admin":
+                    Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                            .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                    roles.add(adminRole);
+                    break;
+                case "customer":
+                default:
+                    Role userRole = roleRepository.findByName(ERole.ROLE_CUSTOMER)
+                            .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                    roles.add(userRole);
+                    break;
+                }
+            });
+        }
+        return roles;
+    }
 }

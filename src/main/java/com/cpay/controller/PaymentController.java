@@ -1,8 +1,9 @@
 package com.cpay.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,19 +20,39 @@ import com.cpay.service.PaymentService;
 @RequestMapping("/api/payments")
 public class PaymentController {
 
-	@Autowired
-	private PaymentService paymentService;
+    private static final Logger logger = LoggerFactory.getLogger(PaymentController.class);
 
-	//@PreAuthorize("hasRole('CUSTOMER')")
-	@PostMapping("/process")
-	public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
-		Payment processedPayment = paymentService.processPayment(payment);
-		return ResponseEntity.ok(processedPayment);
-	}
+    @Autowired
+    private PaymentService paymentService;
 
-	@GetMapping("/card/{cardNumber}")
-	public ResponseEntity<Payment> getPaymentByCardNumber(@PathVariable String cardNumber) {
-		Payment payment = paymentService.getPaymentByCardNumber(cardNumber);
-		return ResponseEntity.ok(payment);
-	}
+    //@PreAuthorize("hasRole('CUSTOMER')")
+    @PostMapping("/process")
+    public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
+        // Log the incoming payment request
+        logger.info("Received payment processing request for card number: {}");
+
+        Payment processedPayment = paymentService.processPayment(payment);
+
+        // Log the successful payment processing
+        logger.info("Successfully processed payment for card number: {}");
+
+        return ResponseEntity.ok(processedPayment);
+    }
+
+    @GetMapping("/card/{cardNumber}")
+    public ResponseEntity<Payment> getPaymentByCardNumber(@PathVariable String cardNumber) {
+        // Log the incoming request to fetch payment details
+        logger.info("Received request to fetch payment details for card number: {}", cardNumber);
+
+        Payment payment = paymentService.getPaymentByCardNumber(cardNumber);
+
+        // Log the result of fetching payment details
+        if (payment != null) {
+            logger.info("Successfully retrieved payment details for card number: {}", cardNumber);
+        } else {
+            logger.warn("No payment found for card number: {}", cardNumber);
+        }
+
+        return ResponseEntity.ok(payment);
+    }
 }
