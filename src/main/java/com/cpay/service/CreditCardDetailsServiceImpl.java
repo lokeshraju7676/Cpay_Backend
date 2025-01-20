@@ -1,5 +1,7 @@
 package com.cpay.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +23,11 @@ public class CreditCardDetailsServiceImpl implements CreditCardDetailsService {
 	public CreditCardDetails getCardDetailsByCardNumber(String cardNumber) {
 		return creditCardDetailsRepository.findByCardNumber(cardNumber);
 	}
+
+	/*
+	 * @Override public List<CreditCardDetails> getAllCardDetails() { // Fetch all
+	 * card details from the repository return (List<CreditCardDetails>)
+	 * creditCardDetailsRepository.findAll(); }
+	 */
+
 }

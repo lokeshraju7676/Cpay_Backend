@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.cpay.entities.ERole.EPaymentStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,17 +21,21 @@ public class Payment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
 	private Long id;
 
 	@Column(nullable = false)
+	@JsonIgnore
 	private Double amount;
 
 	@JsonFormat(pattern = "yyyy-MM-dd") 
 	@Column(nullable = false)
+	@JsonIgnore
 	private LocalDate paymentDate;
 
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
+	@JsonIgnore
 	private EPaymentStatus paymentStatus;
 
 	@ManyToOne

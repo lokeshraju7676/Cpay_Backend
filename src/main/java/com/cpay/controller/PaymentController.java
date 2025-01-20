@@ -22,7 +22,7 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 
-	@PreAuthorize("hasRole('CUSTOMER')")
+	//@PreAuthorize("hasRole('CUSTOMER')")
 	@PostMapping("/process")
 	public ResponseEntity<Payment> processPayment(@RequestBody Payment payment) {
 		Payment processedPayment = paymentService.processPayment(payment);
